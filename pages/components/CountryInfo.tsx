@@ -31,7 +31,7 @@ const CountryInfo = ({
   return (
     <div className='grid gap-16 grid-cols-1 md:grid-cols-2 py-10'>
       <div>
-        <img src={flag} alt={`${name} flag`} />
+        <img className='rounded shadow' src={flag} alt={`${name} flag`} />
       </div>
       <div>
         <h1 className='text-4xl font-bold pb-4'>{name}</h1>

@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply text-lg;
+  @apply text-lg text-gray-800;
 }
