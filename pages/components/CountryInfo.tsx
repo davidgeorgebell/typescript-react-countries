@@ -35,12 +35,16 @@ const CountryInfo = ({
       </div>
       <div>
         <h1 className='text-4xl font-bold pb-4'>{name}</h1>
-        <p>
-          <strong>Capital:</strong> {capital}
-        </p>
-        <p>
-          <strong>Subregion:</strong> {subregion}
-        </p>
+        {capital && (
+          <p>
+            <strong>Capital:</strong> {capital}
+          </p>
+        )}
+        {subregion && (
+          <p>
+            <strong>Subregion:</strong> {subregion}
+          </p>
+        )}
         <p>
           <strong>Top Level Domain:</strong> {topLevelDomain}
         </p>

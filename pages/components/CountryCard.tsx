@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 type CountryCardProps = {
   name: string;
@@ -9,6 +10,8 @@ type CountryCardProps = {
   alpha3Code: string;
 };
 
+const transition = { duration: 0.6, ease: [0.6, 0.01, -0.05, 0.9] };
+
 const CountryCard = ({
   name,
   region,
@@ -17,14 +20,15 @@ const CountryCard = ({
   alpha3Code,
 }: CountryCardProps) => {
   return (
-    <li className='bg-white py-4 rounded'>
+    <motion.li className='bg-white py-4 rounded' transition={transition} layout>
       <Link href={`/country/[slug]`} as={`country/${alpha3Code}`}>
         <a>
           <div>
-            <img
+            <motion.img
               className='object-cover h-48 w-full rounded shadow-2xl'
               src={flag}
               alt={`${name} flag`}
+              whileHover={{ opacity: 0.8 }}
             />
           </div>
           <div className='mx-auto container px-4 py-5'>
@@ -32,13 +36,15 @@ const CountryCard = ({
             <p>
               <strong>Region:</strong> {region}
             </p>
-            <p>
-              <strong>Capital:</strong> {capital}
-            </p>
+            {capital && (
+              <p>
+                <strong>Capital:</strong> {capital}
+              </p>
+            )}
           </div>
         </a>
       </Link>
-    </li>
+    </motion.li>
   );
 };
 export default CountryCard;

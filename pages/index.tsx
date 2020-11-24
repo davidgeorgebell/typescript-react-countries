@@ -18,6 +18,7 @@ export default function Home({ allCountries }) {
       country.name.toLowerCase().includes(searchFilter) ||
       country.region.toLowerCase().includes(searchFilter)
   );
+
   return (
     <>
       <Header handleSearchFilter={handleSearchFilter} />

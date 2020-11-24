@@ -6,6 +6,7 @@ const regions = [
   { region: 'america' },
   { region: 'europe' },
   { region: 'oceania' },
+  { region: 'polar' },
 ];
 
 const RegionList = ({ handleRegionFilter }) => {
