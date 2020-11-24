@@ -23,10 +23,10 @@ export default function Home({ allCountries }) {
       <Header handleSearchFilter={handleSearchFilter} />
       <Layout title='Home'>
         <RegionList handleRegionFilter={handleRegionFilter} />
-        <h3 className='font-mono text-xl pr-10 capitalize'>
+        <h3 className='font-bold text-xl pr-10 py-10'>
           Displaying:{' '}
           <span className='text-green-500'>
-            {searchFilter.length ? searchFilter : 'All'}
+            {searchFilter.length ? searchFilter : 'all'}
           </span>
         </h3>
         {searchedCountries.length ? (
