@@ -8,7 +8,7 @@ type LayoutProps = {
 
 const Layout = ({ title, children }: LayoutProps) => {
   return (
-    <div className='min-h-full'>
+    <div>
       <Head>
         <title>{title}</title>
         <link rel='icon' href='/favicon.ico' />

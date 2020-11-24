@@ -1,14 +1,33 @@
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
+import { useState } from 'react';
+
 import CountryCard from './components/CountryCard';
+import Header from './components/Header';
 import Layout from './components/Layout';
+import RegionList from './components/RegionList';
 
 export default function Home({ allCountries }) {
+  const [searchFilter, setSearchFilter] = useState('');
+
+  const handleSearchFilter = e => setSearchFilter(e.target.value);
+
+  const handleRegionFilter = region => setSearchFilter(region);
+
+  const searchedCountries = allCountries.filter(
+    country =>
+      country.name.toLowerCase().includes(searchFilter) ||
+      country.region.toLowerCase().includes(searchFilter)
+  );
   return (
-    <Layout title='Home'>
-      <main>
-        <ul className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
-          {allCountries.map(c => (
+    <>
+      <Header handleSearchFilter={handleSearchFilter} />
+      <Layout title='Home'>
+        <RegionList handleRegionFilter={handleRegionFilter} />
+        <h3 className='font-mono text-xl pr-10 capitalize'>
+          Displaying: {searchFilter.length ? searchFilter : 'All'}
+        </h3>
+        <ul className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+          {searchedCountries.map(c => (
             <CountryCard
               key={c.name}
               flag={c.flag}
@@ -19,8 +38,8 @@ export default function Home({ allCountries }) {
             />
           ))}
         </ul>
-      </main>
-    </Layout>
+      </Layout>
+    </>
   );
 }
 
