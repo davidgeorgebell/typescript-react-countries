@@ -79,7 +79,7 @@ const CountryInfo = ({
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={transition}>
-            {languages.length > 1 ? 'Languages:' : 'Language:'}
+            {languages && languages.length > 1 ? 'Languages:' : 'Language:'}
           </motion.h4>
           {languages.map(l => (
             <motion.li
@@ -100,18 +100,19 @@ const CountryInfo = ({
             transition={transition}>
             {currencies.length > 1 ? 'Currencies:' : 'Currency:'}
           </motion.h4>
-          {currencies.map(cur => (
-            <motion.li
-              key={cur.name}
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={transition}>
-              {cur.name}{' '}
-              <span className='bg-green-400 text-white px-2 rounded shadow'>
-                {cur.symbol}
-              </span>
-            </motion.li>
-          ))}
+          {currencies &&
+            currencies.map(cur => (
+              <motion.li
+                key={cur.name}
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={transition}>
+                {cur.name}{' '}
+                <span className='bg-green-400 text-white px-2 rounded shadow'>
+                  {cur.symbol}
+                </span>
+              </motion.li>
+            ))}
         </ul>
       </div>
     </div>
