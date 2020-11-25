@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 
 type CountryInfoProps = {
@@ -19,6 +20,8 @@ type CountryInfoProps = {
   ];
 };
 
+const transition = { duration: 0.6, ease: [0.6, 0.01, -0.05, 0.9] };
+
 const CountryInfo = ({
   flag,
   name,
@@ -31,46 +34,83 @@ const CountryInfo = ({
   return (
     <div className='grid gap-16 grid-cols-1 md:grid-cols-2 py-10'>
       <div>
-        <img className='rounded shadow' src={flag} alt={`${name} flag`} />
+        <motion.img
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ transition }}
+          className='rounded shadow'
+          src={flag}
+          alt={`${name} flag`}
+        />
       </div>
       <div>
-        <h1 className='text-4xl font-bold pb-4'>{name}</h1>
+        <motion.h1
+          className='text-4xl font-bold pb-4'
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={transition}>
+          {name}
+        </motion.h1>
         {capital && (
-          <p>
+          <motion.p
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={transition}>
             <strong>Capital:</strong> {capital}
-          </p>
+          </motion.p>
         )}
         {subregion && (
-          <p>
+          <motion.p
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={transition}>
             <strong>Subregion:</strong> {subregion}
-          </p>
+          </motion.p>
         )}
-        <p>
+        <motion.p
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={transition}>
           <strong>Top Level Domain:</strong> {topLevelDomain}
-        </p>
+        </motion.p>
         <ul className='flex flex-wrap'>
-          <h4 className='font-bold'>
+          <motion.h4
+            className='font-bold'
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={transition}>
             {languages.length > 1 ? 'Languages:' : 'Language:'}
-          </h4>
+          </motion.h4>
           {languages.map(l => (
-            <li
+            <motion.li
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={transition}
               className='mx-1 mb-1 px-1 rounded shadow bg-green-400 text-white'
               key={l.name}>
               {l.name}
-            </li>
+            </motion.li>
           ))}
         </ul>
         <ul>
-          <h4 className='font-bold'>
+          <motion.h4
+            className='font-bold'
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={transition}>
             {currencies.length > 1 ? 'Currencies:' : 'Currency:'}
-          </h4>
+          </motion.h4>
           {currencies.map(cur => (
-            <li key={cur.name}>
+            <motion.li
+              key={cur.name}
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={transition}>
               {cur.name}{' '}
               <span className='bg-green-400 text-white px-2 rounded shadow'>
                 {cur.symbol}
               </span>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>

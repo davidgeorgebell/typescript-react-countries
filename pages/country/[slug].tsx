@@ -1,7 +1,6 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Layout from '../components/Layout';
-import { count } from 'console';
 import Link from 'next/link';
 import CountryInfo from '../components/CountryInfo';
 
