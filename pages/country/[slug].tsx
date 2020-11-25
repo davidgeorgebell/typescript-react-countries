@@ -28,7 +28,7 @@ const Country = ({ country }) => {
               transition={{ transition }}
               className='rounded shadow'
               src={country.flag}
-              alt={`${name} flag`}
+              alt={`${country.name} flag`}
             />
           </div>
           <div>
@@ -37,7 +37,7 @@ const Country = ({ country }) => {
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={transition}>
-              {name}
+              {country.name}
             </motion.h1>
             {country.capital && (
               <motion.p
