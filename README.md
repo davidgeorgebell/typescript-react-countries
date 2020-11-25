@@ -10,4 +10,4 @@ Displays information about countries. Search and filter through. Each country is
 - TailwindCSS
 - Framer Motion (animations)
 
-![Countries Demo](/countries.gif)
+![Countries Demo](/public/countries.gif)
