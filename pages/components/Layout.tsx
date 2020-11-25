@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { ReactChild } from 'react';
 import Head from 'next/head';
 
-const Layout = ({ title, children }) => {
+type LayoutProps = {
+  title: string;
+  children?: ReactChild;
+};
+
+const Layout = ({ title, children }: LayoutProps) => {
   return (
     <>
       <Head>
