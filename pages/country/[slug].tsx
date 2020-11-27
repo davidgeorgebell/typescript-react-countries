@@ -145,7 +145,13 @@ const Country = ({
       capitalCityWeather.weather &&
       capitalCityWeather.main ? (
         <Weather
-          capitalCityWeather={capitalCityWeather}
+          capitalCityWeather={{
+            feels_like: capitalCityWeather.main.feels_like,
+            main: capitalCityWeather.weather[0].main,
+            temp: capitalCityWeather.main.temp,
+            temp_max: capitalCityWeather.main.temp_max,
+            temp_min: capitalCityWeather.main.temp_min,
+          }}
           capitalCity={country.capital}
         />
       ) : null}
