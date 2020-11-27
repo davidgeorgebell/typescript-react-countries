@@ -1,10 +1,6 @@
 import React from 'react';
 
-type WeatherProps = {
-  capitalCity: string;
-};
-
-export const Weather = ({ capitalCityWeather, capitalCity }) => {
+const Weather = ({ capitalCityWeather, capitalCity }) => {
   console.log(capitalCityWeather);
 
   return (
@@ -63,3 +59,4 @@ export const Weather = ({ capitalCityWeather, capitalCity }) => {
     </>
   );
 };
+export default Weather;
