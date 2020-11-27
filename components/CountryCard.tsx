@@ -10,8 +10,6 @@ type CountryCardProps = {
   alpha3Code: string;
 };
 
-const transition = { duration: 0.6, ease: [0.6, 0.01, -0.05, 0.9] };
-
 const CountryCard = ({
   name,
   region,
@@ -23,9 +21,9 @@ const CountryCard = ({
     <motion.li
       className='bg-white py-4 rounded'
       layout
+      transition={{ duration: 0.6 }}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={transition}>
+      animate={{ opacity: 1 }}>
       <Link href={`/country/[slug]`} as={`country/${alpha3Code}`}>
         <a>
           <div>
