@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { motion } from 'framer-motion';
 
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import { Weather } from '../components/Weather';
 
 const transition = { duration: 0.6, ease: [0.6, 0.01, -0.05, 0.9] };
 
@@ -29,6 +30,23 @@ const Country = ({
     ];
   };
 }) => {
+  const [capitalCityWeather, setCapitalCityWeather] = useState<any>(null);
+
+  useEffect(() => {
+    const getWeather = async () => {
+      try {
+        const res = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&units=metric&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
+        );
+        const weather = await res.json();
+        setCapitalCityWeather(weather);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getWeather();
+  }, []);
+
   return (
     <Layout title={country.name}>
       <div className='pb-10'>
@@ -123,6 +141,14 @@ const Country = ({
           </ul>
         </div>
       </div>
+      {capitalCityWeather &&
+      capitalCityWeather.weather &&
+      capitalCityWeather.main ? (
+        <Weather
+          capitalCityWeather={capitalCityWeather}
+          capitalCity={country.capital}
+        />
+      ) : null}
     </Layout>
   );
 };
