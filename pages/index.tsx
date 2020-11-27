@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next';
 import { useState } from 'react';
 
-import CountryCard from './components/CountryCard';
-import Header from './components/Header';
-import Layout from './components/Layout';
-import RegionList from './components/RegionList';
+import CountryCard from '../components/CountryCard';
+import Header from '../components/Header';
+import Layout from '../components/Layout';
+import RegionList from '../components/RegionList';
 
 export default function Home({ allCountries }) {
   const [searchFilter, setSearchFilter] = useState('');

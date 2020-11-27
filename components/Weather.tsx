@@ -16,7 +16,7 @@ export const Weather = ({ capitalCityWeather, capitalCity }) => {
             : capitalCityWeather.main.temp >= 20
             ? 'bg-red-600'
             : capitalCityWeather.main.temp >= 15
-            ? 'bg-orange-600'
+            ? 'bg-yellow-500'
             : capitalCityWeather.main.temp >= 10
             ? 'bg-blue-300'
             : 'bg-blue-100'
