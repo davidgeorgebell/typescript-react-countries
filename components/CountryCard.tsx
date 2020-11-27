@@ -21,7 +21,7 @@ const CountryCard = ({
     <motion.li
       className='bg-white py-4 rounded'
       layout
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.4 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}>
       <Link href={`/country/[slug]`} as={`country/${alpha3Code}`}>
