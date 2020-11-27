@@ -6,7 +6,7 @@ import Layout from '../../components/Layout';
 import Link from 'next/link';
 import Weather from '../../components/Weather';
 
-const transition = { duration: 2, ease: [0.6, 0.01, -0.05, 0.9] };
+const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
 
 const Country = ({
   country,
@@ -63,7 +63,7 @@ const Country = ({
           <motion.img
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ transition }}
+            transition={transition}
             className='rounded shadow'
             src={country.flag}
             alt={`${country.name} flag`}
