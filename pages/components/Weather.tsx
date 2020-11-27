@@ -4,7 +4,7 @@ type WeatherProps = {
   capitalCity: string;
 };
 
-const Weather = ({ capitalCityWeather, capitalCity }) => {
+export const Weather = ({ capitalCityWeather, capitalCity }) => {
   console.log(capitalCityWeather);
 
   return (
@@ -63,4 +63,3 @@ const Weather = ({ capitalCityWeather, capitalCity }) => {
     </>
   );
 };
-export default Weather;

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import Layout from '../components/Layout';
 import Link from 'next/link';
-import Weather from '../components/Weather';
+import { Weather } from '../components/Weather';
 
 const transition = { duration: 0.6, ease: [0.6, 0.01, -0.05, 0.9] };
 
